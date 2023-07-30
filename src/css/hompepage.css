@@ -1,8 +1,8 @@
 .product-section{
     height: 100vh;
     position: relative;
-    padding: 0px 40px;
-    overflow: hidden;
+    /* padding: 0px 40px; */
+    /* overflow: hidden; */
 }
 
 .back img{

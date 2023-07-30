@@ -1,10 +1,9 @@
 // import back from '../assets/back.png';
 import Carousel from 'react-multi-carousel';
-// import next from '../assets/forward.png';
-import laptop from '../assets/msi_laptop.png';
-import laptoptwo from '../assets/lap2.png';
 import '../css/hompepage.css';
 import 'react-multi-carousel/lib/styles.css';
+import Product from './Product';
+import laptoptwo from '../assets/lap2.png';
 
 const HomePage = () => {
   const responsive = {
@@ -15,7 +14,7 @@ const HomePage = () => {
     },
     desktop: {
       breakpoint: { max: 1024, min: 800 },
-      items: 4,
+      items: 3,
     },
     tablet: {
       breakpoint: { max: 800, min: 464 },
@@ -26,51 +25,71 @@ const HomePage = () => {
       items: 1,
     },
   };
+
+  const productData = [
+    {
+      id: 1,
+      imageurl: laptoptwo,
+      name: 'MSI LAPTOP Leopard',
+      price: '$1400',
+    },
+    {
+      id: 2,
+      imageurl: laptoptwo,
+      name: 'HP OMEN',
+      price: '$1400',
+    },
+    {
+      id: 3,
+      imageurl: laptoptwo,
+      name: 'AZUS',
+      price: '$1400',
+    },
+    {
+      id: 4,
+      imageurl: laptoptwo,
+      name: 'TOSHIBA',
+      price: '$1400',
+    },
+    {
+      id: 5,
+      imageurl: laptoptwo,
+      name: 'RENNOVA',
+      price: '$1400',
+    },
+    {
+      id: 6,
+      imageurl: laptoptwo,
+      name: 'DELL',
+      price: '$1400',
+    },
+    {
+      id: 7,
+      imageurl: laptoptwo,
+      name: 'MAC PRO',
+      price: '$1400',
+    },
+    {
+      id: 8,
+      imageurl: laptoptwo,
+      name: 'SAMSUNG',
+      price: '$1400',
+    },
+  ];
   return (
     <div className="product-section">
-      <Carousel responsive={responsive}>
-        <div className="product">
-          <div className="circle">
-            <img className="product-img" src={laptop} alt="" />
-          </div>
-          <p><strong>$19,00</strong></p>
-          <p>MSI GL65 Leopard</p>
-        </div>
-        <div className="product">
-          <div className="circle">
-            <img className="product-img" src={laptoptwo} alt="" />
-          </div>
-          <p><strong>$19,00</strong></p>
-          <p>MSI GL65 Leopard</p>
-        </div>
-        <div className="product">
-          <div className="circle">
-            <img className="product-img" src={laptop} alt="" />
-          </div>
-          <p><strong>$19,00</strong></p>
-          <p>MSI GL65 Leopard</p>
-        </div>
-        <div className="product">
-          <div className="circle">
-            <img className="product-img" src={laptoptwo} alt="" />
-          </div>
-          <p><strong>$19,00</strong></p>
-          <p>MSI GL65 Leopard</p>
-        </div>
-        <div className="product">
-          <div className="circle">
-            <img className="product-img" src={laptop} alt="" />
-          </div>
-          <p><strong>$19,00</strong></p>
-          <p>MSI GL65 Leopard</p>
-        </div>
-        <div className="product">
-          <div className="circle">
-            <img className="product-img" src={laptoptwo} alt="" />
-          </div>
-          <p><strong>$19,00</strong></p>
-          <p>MSI GL65 Leopard</p>
-        </div>
+      <Carousel
+        showDots
+        responsive={responsive}
+      >
+        {productData.map((product) => (
+          <Product
+            key={product.id}
+            imageurl={product.imageurl}
+            name={product.name}
+            price={product.price}
+          />
+        ))}
       </Carousel>
       ;
     </div>
