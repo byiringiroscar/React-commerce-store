@@ -6,6 +6,7 @@ import './style/home.css';
 import Header from './pages/Header';
 import menu from './assets/menu.png';
 import Sign from './pages/Sign';
+import Signup from './pages/signup';
 
 function App() {
   const [isMenuActive, setIsMenuActive] = useState(false);
@@ -21,6 +22,7 @@ function App() {
           <Routes>
             <Route exact path="/" element={<HomePage />} />
             <Route exact path="/sign" element={<Sign />} />
+            <Route exact path="/signup" element={<Signup />} />
           </Routes>
           <button
             type="button"
