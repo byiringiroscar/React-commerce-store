@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import './style/home.css';
 import Header from './pages/Header';
 import menu from './assets/menu.png';
+import Sign from './pages/Sign';
 
 function App() {
   const [isMenuActive, setIsMenuActive] = useState(false);
@@ -19,6 +20,7 @@ function App() {
         <section className="main-content">
           <Routes>
             <Route exact path="/" element={<HomePage />} />
+            <Route exact path="/sign" element={<Sign />} />
           </Routes>
           <button
             type="button"

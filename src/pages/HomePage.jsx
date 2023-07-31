@@ -1,4 +1,3 @@
-// import back from '../assets/back.png';
 import Carousel from 'react-multi-carousel';
 import '../css/hompepage.css';
 import 'react-multi-carousel/lib/styles.css';
