@@ -17,18 +17,21 @@ export const loginUser = createAsyncThunk(
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({
+        user: {
+          email,
+          password,
+        },
+      }),
     });
-
     if (!response.ok) {
       throw new Error('Failed to log in');
     }
-
     const data = await response.json();
+    console.log(data);
     return data;
   },
 );
-
 const authSlice = createSlice({
   name: 'auth',
   initialState,
