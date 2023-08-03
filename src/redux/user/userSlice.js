@@ -9,6 +9,14 @@ const initialState = {
   isAdmin: false,
 };
 
+const extractToken = (response) => {
+  const authHeader = response.headers.get('authorization');
+  if (authHeader && authHeader.startsWith('Bearer ')) {
+    return authHeader.split(' ')[1];
+  }
+  return null;
+};
+
 export const loginUser = createAsyncThunk(
   'auth/login',
   async ({ email, password }) => {
@@ -28,6 +36,11 @@ export const loginUser = createAsyncThunk(
       return { status: { code: 404, message: 'Credentials not match.' } };
     }
     const data = await response.json();
+    const token = extractToken(response);
+    console.log(token);
+    if (token) {
+      localStorage.setItem('Authorization', `Bearer ${token}`);
+    }
     return data;
   },
 );
