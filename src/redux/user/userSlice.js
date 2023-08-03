@@ -25,10 +25,9 @@ export const loginUser = createAsyncThunk(
       }),
     });
     if (!response.ok) {
-      throw new Error('Failed to log in');
+      return { status: { code: 404, message: 'Credentials not match.' } };
     }
     const data = await response.json();
-    console.log(data);
     return data;
   },
 );

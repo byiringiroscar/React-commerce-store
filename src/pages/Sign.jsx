@@ -12,20 +12,18 @@ const Sign = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(loginUser({ email, password }))
-      .then((result) => {
-        if (result.payload.status.code === 200) {
-          // Handle successful login
-          toast.success(result.payload.status.message);
+      .then((data) => {
+        // Check if the API response has an 'error' property
+        if (data.payload.status.code === 404) {
+          toast.error('Login failed. Please try again.'); // Display the error message from the API
         } else {
-          // Handle other status codes or error cases, if needed
-          console.log(result);
-          toast.error('Login failed. Please try again.');
+          // console.log(data);
+          // Login success
+          toast.success('Login successful!');
         }
       })
       .catch((error) => {
-        // If the promise rejects, it means the login failed
-        console.log(error);
-        toast.error('Login failed---. Please try again.');
+        toast.error(error);
       });
   };
   return (
